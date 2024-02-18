@@ -26,7 +26,7 @@ namespace BackPropagation.Builders
                     UbicacionNeurona iUbicacion = new(iLayer, iIndex);
 
                     Neurona iNeurona = new(iUbicacion);
-                    if (iLayer > 1) iNeurona.Umbral = DefaultDataGenerator.GenerateDefaultUmbral();
+                    if (iLayer > 1) iNeurona.ValoroUmbral = DefaultDataGenerator.GenerateDefaultUmbral();
                     iCapaNeuronas.Add(iNeurona);
                 }
                 Capa iCapa = new(iLayer, iCapaNeuronas);

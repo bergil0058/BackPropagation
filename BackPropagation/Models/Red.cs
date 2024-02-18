@@ -7,6 +7,9 @@ namespace BackPropagation.Models
     {
         public List<Capa> Capas { get; }
         public List<EnlaceNeuronal> Enlaces { get; }
+        public int NumeroNeuronas { get; }
+
+
 
         public Red(List<Capa> aCapas)
         {
@@ -15,7 +18,11 @@ namespace BackPropagation.Models
                 .ToList();
 
             this.Enlaces = GenerateEnlaces(this.Capas);
+
+            this.NumeroNeuronas = aCapas.SelectMany(x => x.Neuronas).Count();
         }
+
+
 
         internal Neurona GetNeurona(int aCapa, int aIndice) => Capas[aCapa - 1].Neuronas[aIndice - 1];
 
@@ -28,7 +35,7 @@ namespace BackPropagation.Models
                     .First()
                     .Neuronas
                     .First(x => x.Ubicacion.Index == iIndex)
-                    .ValorPrimeraCapa = aValoresPrimeraCapa[i];
+                    .ValoroUmbral = aValoresPrimeraCapa[i];
             }
         }
 
